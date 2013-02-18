@@ -1,0 +1,23 @@
+CROSS_HOST="x86_64-pc-cygwin"
+inherit cross
+
+NAME="cygwin64-popt"
+VERSION=1.16
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="popt library for Cygwin 64bit toolchain"
+DESCRIPTION="The popt library exists essentially for parsing command line options.
+Some specific advantages of popt are no global variables (allowing multiple
+passes in parsing argv), parsing an arbitrary array of argv-style elements
+(allowing parsing of command-line-strings from any source), a standard method
+of option aliasing, ability to exec external option filters, and automatic
+generation of help and usage messages."
+HOMEPAGE="http://rpm5.org/"
+SRC_URI="http://rpm5.org/files/popt/popt-${VERSION}.tar.gz"
+SRC_DIR="popt-${VERSION}"
+PATCH_URI="1.16-cygwin.patch
+	   1.16-vpath.patch"
+
+MAKEOPTS+=" man_MANS= "
+
+KEEP_LA_FILES="none"
